@@ -1,0 +1,334 @@
+
+
+
+
+
+	OOPS
+	
+	
+
+	POPS  = procedure oriented programming system
+
+
+		POPS = procedure <--- Data
+
+	
+
+				globaldata
+
+		var1	var2	var3	var4	var5	var6	var7
+
+				main() { }
+
+
+	fun1		fun2		fun3		fun4		fun5
+
+
+
+
+	OOPS = data <-- procedure
+
+				globaldata
+
+		var1	var2	var3	var4	var5	var6	var7
+
+				main() { }
+
+-------------------------------------------------------
+	var1		var2		var3	var4		
+	fun1		fun2		fun3	
+-------------------------------------------------------
+
+
+
+---------------------------------------------------
+	var5		var6		var7		
+	fun4		fun5
+---------------------------------------------------
+
+
+
+1. Abstraction
+
+	- Hiding the complexity of an OBJECT
+	- It is the "what is ? part " of an Object!!!!!
+	- providing the USAGE of an object = public functions = accessible functions
+		
+		- data abstraction
+			number of users hit the ATM today??
+			how much cash in the ATM???
+			how much dispense till now, today
+			
+		- procedural abstraction
+			PRIVATE FUNCTIONS
+			- is there any logger??? 
+			- camera recording
+			- pin? first  or cash first?
+
+		- class abstraction
+			- nested classes ( inner classes )
+
+			class BankAccount {
+
+				private: float bankBalance;
+
+				private: Permission permObj;
+			
+					class Permission {
+						..
+						..
+					}
+
+				public: void withdraw(float amt) {
+					if(permObj.canWithdraw) {
+						
+					}
+				}
+			}
+		
+			BankAccount bankObj;
+			bankObj.bankBalance=900000000000000;//ERROR		
+
+		What is an ATM?
+
+			- dispense cash
+			
+
+
+2. Encapsulation
+
+	- It is the "How is it? part" of an Object !!!!!
+
+
+		How is it dispensing the cash?
+
+
+	- binding of data and function in such a way so that
+	the functionality is available to the user
+	and the non-relevant data is kept as PRIVATE
+
+
+	 	
+3. Polymorhism
+
+	ability of a business entity to acquire multiple forms
+
+				BankAccount
+				|acno,acname, balance
+				| withdraw(amt){ balance-=amt}
+		----------------------------------
+		|		|		|
+	SavingsAccount	   CurrentAccount	CreditCardAccount
+		|rate		overdraftLimit		cashLimit, creditLimit	
+		|simpleInterest
+		| withdraw(amt) {
+		|  check min bal and then withdraw	
+	--------------------	
+	|
+FixedDepositAccount
+	compoundInterest
+	withdraw(amt)
+	check maturity and withdraw/partial withdraw amt
+
+
+
+				Doctor
+				|
+		---------------------------
+		|			|
+		Surgeon		
+		|cut() {}
+	-----------------------
+	|		|
+	HeartSurgeon	NeuroSurgeon	
+	cut() {
+	}
+	
+			static polymorphism* <--wrong terminology
+			dynamic polymophism <-- by default it is dynamic, so why to say dynamic
+			X
+			early binding
+			late binding
+
+
+
+		class Phone
+		{
+			publlic:
+			void dial()
+			{
+			}
+			void dial(int i) //overridden
+			{
+			}
+			void dial(int i, int j)
+			{
+			}
+			void dial(char* name) {
+			}
+
+			void dial(int i, char *name) {
+			}
+			void dial(char *name, int i) {
+			}
+		}	
+		class SmartPhone : public Phone {
+			public:
+			void dial(int i) { //overriding of the overridden
+			
+			}
+		}
+		
+		
+		Phone phoneObj;
+		phoneObj.dial(); // phoneObj.Phone::dial(); NAME mangling
+		phoneObj.dial(10); // early binding
+	------------------------------------------------
+
+		Phone *ptr;
+
+
+		ptr = new Phone();
+
+		ptr->dial(123); // ptr->Phone::dial(123);
+
+		ptr = new SmartPhone();
+
+		ptr->dial(223); //ptr->Phone::dial(223); , then at runtime a vtable is fetched
+						to replace this line as below
+					ptr->SmartPhone.dial(223);
+
+
+		int *ptr;
+
+		unsinged int is the ptr's type
+	
+		and it is holding the memory address of an int 
+
+
+		THE VALUE OF ANY VARIABLE IS ACCESSIBLE IN TWO WAYS
+
+		1. BY ITS NAME
+		2. BY  ITS ADDRESS
+
+
+
+
+		int num=189;
+		    |
+		  NAME
+
+
+		
+		name		num			ptr
+		value		189			24000
+		address		24000			25000
+
+
+   data type of that variable whose address being stored by ptr
+		|
+		int  *ptr;
+		     |
+		birth of a pointer named as ptr	
+
+
+
+		a) class extension
+
+		b) function overloading
+
+			ability to redefine the function based on following terms
+				i) type of paras
+				ii) number of paras
+				iii) sequence of type of paras
+
+		c) function overriding
+
+			let subclass redefine the parent function
+
+		d) operator overloading
+			ability of an operator to redefine the expression
+
+				4+4=16
+				
+				objects in expressions
+
+
+			empObj3 = empObj1 + empObj2;
+				// empObj1.operator+(empObj2);
+
+
+			class Employee
+			{
+				float sal;
+
+				Employee operator+(Employee &x)
+				{
+					Employee temp;
+					temp.sal = sal + x.sal;
+					return temp;
+				}
+			}
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
