@@ -1,4 +1,10 @@
 
+https://geeksprogramming.com/key-principles-in-software-and-acronyms/
+https://refactoring.guru/design-patterns
+
+
+https://github.com/vishhaldawane/ForcePoint
+
 
 
 
@@ -273,26 +279,186 @@ FixedDepositAccount
 
 
 	
+	4) Inheritance
+
+		acquiring properties from existing business entities
+		- re-use of the existing code
+
+		
+
+		Generalization 	vs	Specialization
+		|				|
+	generic content			unique content as per the class
+	across all the objects		
+
+			
+		2d	3d	
+		2dc	3dc
+
+
+		class Point2D {  <--- GENERALIZATION
+			private: int x; int y;
+			public:
+			Point (int a,int b) { x= a; y = b; }
+			void showPoint() {
+				cout<<x<<y;
+			}
+		}
+
+		int const *ptr;
+
+		class Point3D : public Point2D { //SPECIALIZATION
+			private: int z; 
+			public:
+			Point3D (int a,int b,int c):Point(a,b) { z = c;  }
+			void showPoint() {
+				Point2D::showPoint(); //invoke parent's function
+				cout<<z;
+			}
+		}
+
+		class ColouredPoint3D : public Point3D { //Specialization of SPECIALIZATION
+			private: char *color;
+			public:
+			ColouredPoint3D (int a,int b,int c,char *col):Point3D(a,b,c) { color = col;  }
+			void showPoint() {
+				Point3D::showPoint(); //invoke parent's function
+				cout<<color;
+			}
+		}
+
+
+		Point2D p1(80,90);
+		p1.showPoint();;
+
+		Point2D *p2 = new    Point2D(10,20);	p2->showPoint();
+				|      |	
+			   allocator constructor
+			  8 bytes	  |
+			  allocated  to fillup the x and y with 10 20
+
+		stack				heap
+		
+		
+						x	y
+						10	20
+		+----------------------------->100
+		|
+		100
+		p2
+						Point2D(){}
+						showPoint(){}
+
+
+		Point3D p3 = new Point3D(50,60,70);
+				
+
+						<---Point3D----->
+						<-Point2D->
+						x	 y	z
+						50	 60
+		------------------------------->200
+		|
+		200
+		p3
+						Point3D()
+						showPoint(){}
 
 
 
+		a. single level
+		b. multi level
+		c. multiple level
+		d. hierarchical level
+
+
+		
+	 DERIVATION			vs		IMPLEMENTATION
+	  |						|
+	override methods				mandatory implementations
+	|						|
+	Point2D						BankAccount
+	|						|withdraw(); deposit();
+	Point3D				---------------------------------
+	|				|		|		|
+	ColouredPoint3D		SavingsAccount	CurrentAccount	CrediAccount
+	
+		
+
+				1. Instrument
+					|use();
+		------------------------------------------------------------
+			|						|			MeasuringInstrument	..	..	..
+	2. MusicalInstrument					MedicalInstrument
+		|play();						|operate();
+		---------------------------------			-----------------------
+		|				|			|
+	3. StringBasedMusicalInstrument	  AirBasedMusicalInstrument	SurgicalMedicalInstrument
+		|tuneStrings();			|blowAir();		|sterile();
+	4. Guitar				Flute			SurgicalCutter
+		|pluck();			operate6Holes();	 cut();
+	5. ElectronicGuitar
 
 
 
+		Male			Female
+		XY			XX
+		|			|
+		-------------------------
+			   |
+			  XX
 
 
 
+			Animal
+			 |breathing();
+			 |eat(); sleep();
+		--------------------
+		|		  |
+		Mammal		Bird <---- virtual base classes
+		| |giveBirth();	| |layEggs();
+		| +--------------+ |
+		|	 | 	   |
+		Tiger	Bat	Parrot
+		hunt();	 |	   fly();
+		
 
 
+		class Animal { }
+
+		class Mammal : public virtual Animal { }
+		class Bird  : public virtual Animal { }
+
+		class Bat : public Mammal, public Bird { }
+		
 
 
+		Bat b;
 
-
-
+		b.sleep();
 
 
 	
 
+		ABSTRACT CLASS = a class with partial contract
+
+
+
+		class BankAccount { //C++ | minimum one pure virtual function required to make it as an abstract class
+		
+			virtual void withdraw(float amt)=0;
+			virtual void deposit(float amt)=0;
+			void showBalance() {
+			}
+		}
+
+		abstract class BankAccount { //JAVA
+			abstract void withdraw(float amt);
+			abstract void deposit(float amt);
+		}
+
+		abstract class God { //JAVA | abstract class may not have abstract methods here in java
+		}
 
 
 
@@ -300,35 +466,302 @@ FixedDepositAccount
 
 
 
+		virtual function vs pure virtual function
+		|			|
+		can be overridden	must be implemented
 
 
 
+		class Flying {
+			void virtual checkAltitude()=0;
+			void virtual checkLatitude()=0;
+		}
+		class Flight : public Flying //Flight isA Flying
+		{
+			virtual void fly() {
+			}
+		}
+		class CommercialFlight : public Flight {
+			void fly() {
+			}
+		}
 
 
 
+	Flight *ptr = new Flight();
+		ptr->fly();
+
+		ptr = new CommercialFlight();
+		ptr->fly();
 
 
 
+		class AirCombat { // INTERFACE in JAVA
+			virtual void armMissile()=0; // pure abstract function 
+			virtual void fireMissile()=0;
+		}
+	
+		class FighterFlight : public Flight, public AirCombat {
+		
+			void fly() {// not mandatory , since it is already present in parent
+			}
+			void armMissile() { //mandatory
+			}
 
+			void fireMissile() { //mandatory
+			}
+		}
 
+		Flight *flightObj = new FlighterFlight();
+		flightObj.fly();//Flight.fly(); is bound at compile time
+			
 
-
+				vtable
+				--------------
+					FigherFlight::fly();
+					FighetrFlight::armMissile();
+					FighterFlight::fireMissile();
+				---------------
  
+			flightObj.fly();
+
+			RTTI
+
+			Reflection API
+
+		
+
+		class RadarControl {
+		
+			void monitorFlights(Flying *flying) {
+				flying.findTheWeight(); //CargoFlight's | error
+				flying.findTheTicket(); //CommercialFlight | error
+				flying.fireMissile(); //FigherFlight | error
+				flying.checkAltitude(); | possible
+				flying.checkLatitude(); | possible
+
+
+				if(typid(flying)==CargoFlight) { 
+					CargoFlight *cargoFlight = flying;
+					cargoFlight->findTheWeight();
+				}
+			}
+		}
 
 
 
+		Flying *flying = new FigherFlight();
+
+		flying->checkAltitude();
+
+
+		
+				Association
+					|
+		-------------------------------------------------
+		|		|		|		|
+		isA		hasA		usesA		producesA
+		|		|		|		|
+		Aggregation	Composition	passingObject	returningObject		
+		<-----structural---------->	<------ functional-------->
+
+
+		class WashingPowder : public Powder //isA
+		{
+		}	
+
+		
+		class Machine { }
+	
+		class WashingMachine : public Machine { //isA
+				
+			WashingTub washingTub; //hasA
+			..	
+			..
+			..
+
+		//producesA			usesA		usesA		usesA		usesA
+			Laundry wash(WashingPowder powder, Cloth cloth[], Water water, Electricity elect) 
+				for(..) { }
+				rinse();
+				Laundry laundry;
+				laundry.set(powder.getCost()+ cloth.size() * 15 + water.getSize() + elect.units());
+				return laundry;
+			}
+			private void rinse() {
+				for(){}
+				spinOrDry();
+			}
+			private void spinOrDry() {
+			}
+		}
 
 
 
+		class MyDrive
+		{
+			WorkBook book1,book2,........;
+		}
+		class WorkBook
+		{
+			WorkSheet sheet1;
+			WorkSheet sheet2;
+		
+		}
+		class WorkSheet
+		{
+			Cell cell[20000][256];
+		}
+
+		class Cell
+		{
+			int rowNumber;
+			char columnName[2]; // AA AB AC
+			char *value;
+		}
+		
+		class Engine { }
+
+		class Car  {
+
+			Engine engine; //hasA
+			Wheel wheel[5]; //hasA
+
+		}
 
 
 
+	-------------------------------------------------
+
+
+	four types of functions
+
+	1. function without arguments and without return
+
+	2. function with argument, but without return
+
+	3. function with argument, with return 
+
+	4. function without argument but with return
+
+	---------------------
+
+	1. exclusive function
+	2. inherited 
+	3. overridden
+	4. implemented - abstract/interfaces's function
+
+
+	class Doctor { void diagnose() {}//1 }
+
+	class Surgeon : public Doctor {
+		void surgery() { } //1
+		//2 also here, ie diagnose()
+		
+	}
+	class HeartSurgery {
+		void virtual doHeartSurgery()=0;
+	}
+	class HeartSurgeon : public Surgeon, public HeartSurgery {
+		void surgery() { }// inherited-overridden //3
+
+		void doHeartSurgery() { //4
+		}
+	}
+
+
+	find square root from 1 to 10
+
+
+	main()
+	{		
+		for(i=1..10) {
+			..logic to find the root of i
+		}
+	}
+	
+	class MyMath
+	{
+		static int findSquareRoot(int aNumber)
+		{
+		
+		}
+	}a
+
+
+	try
+	{
+	}
+	catch(FundTransferException fundTrnsfrEx)
+	{
+	}
+
+
+	setLookAndFeel()
+	{
+	}
+
+	setlook() {
+	}
+
+	void godisnowhere() {
+	}
+
+	void godIsNoWhere() {
+	}
+	void godIsNowHere() {
+	}
+
+	class Employee
+	{
+		int empno;
+		char *name;
+		float salary;
+
+		char *homeStreet;
+		char *officeStreet;
+		char *homeArea;
+		char *officeArea;
+
+		int homePin;
+		int officePin;
+
+	
+
+		getTimeSheet();
+		getDetails();
+		getAddress();
+		..
+		..
+		..
+	}
+	class Employee {
+		Address *addrObj;
+		TimeSheet getTimeSheet() { }
+		
+	}
+	class TimeSheet { }
+	class Address {}
+
+	
+
+
+	class FighterFlightImpl {
+	}
+
+	figherFlightImplObj1;
+
+
+	ArithmeticException arithmeticException;
 
 
 
+	int employee_number;
 
+	int employeeNumber; //camel case
 
+	class EmployeeDatabase //pascal case
+	{
 
-
-
+	}
 
