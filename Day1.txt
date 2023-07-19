@@ -1,4 +1,13 @@
 
+
+			who
+
+		where		when
+
+	why		what		how
+
+
+
 https://geeksprogramming.com/key-principles-in-software-and-acronyms/
 https://refactoring.guru/design-patterns
 
@@ -764,4 +773,268 @@ FixedDepositAccount
 	{
 
 	}
+
+3. LISp
+
+	class Chess { // Rajesh
+		
+		virtual void moveBishop( )  { // throwing exception of type A
+			// diagonal + forward + backward
+			// 1 step + many steps
+			// one color
+		}
+	}
+	class GraphicalChess : public Chess { //Ramesh
+		
+		void moveBishop() {
+			Chess::moveBishop(); //invoke super class logic
+			+
+			have some graphical logic
+		}
+	}
+
+			
+	Chess *ptr = new GraphicalChess();
+
+		ptr->moveBishop();
+
+
+			Shape
+			|
+		----------------
+		|
+		Rectangle
+		|l b
+		Square
+		 
+
+			Shape
+			|
+		-----------------
+		|		|
+		Square		Circle
+		|l		|rad
+		Rectangle	Ellipse
+		b		rad2
+
+			Flower
+			|
+		------------------
+		|		|
+		Rose		Lotus
+
+		Rose rose = new Rose();
+		Flower flower = new Rose();
+	
+		Flower flower = Garden.getFlower("flowerhint");
+
+	
+		Piston pistonObj = new Piston("FourStroke");
+		Engine engineObj = new Engine(pistonObj);
+		Car carObj = new Car(engineObj);
+
+
+
+	class CarFactory
+	{
+
+		static Car getCar() {
+			Piston pistonObj = new Piston("FourStroke");
+			Engine engineObj = new Engine(pistonObj);
+			Car carObj = new Car(engineObj);
+		}
+	}
+
+	Car carObj1 = CarFactory.getCar();
+	Car carObj2= CarFactory.getCar();
+	Car carObj3 = CarFactory.getCar();
+	Car carObj4 = CarFactory.getCar();
+	Car carObj5 = CarFactory.getCar();
+	Car carObj6 = CarFactory.getCar();
+	
+
+
+
+	class Kitchen
+	{
+		private:
+			static Kitchen *ptr = new Kitchen();
+			Kitchen() { }
+
+		public:
+			static Kitchen getKitchen() {
+				return ptr;
+			}
+	}
+
+	class Kitchen
+	{
+		private:
+			static Kitchen *ptr = NULL; 
+			Kitchen() { }
+
+		public:
+			static Kitchen getKitchen() {
+				if(ptr==NULL) 
+					ptr = new Kitchen();
+				return ptr;
+			}
+	}
+
+
+	class Shape
+	{
+		virtual void draw()=0;
+	}
+	class Rectangle : public Shape {
+		void draw(){}
+	}
+	class Circle : public Shape {
+		void draw(){}
+	}
+	class Triangle : public Shape {
+		void draw(){}
+	}
+
+	class ShapeFactory
+	{
+		Shape *ptr;
+
+		static Shape getShape(char *someHint) {
+			if(someHint.strcmp("rects")) {
+				ptr = new Rectangle();
+			}
+			else
+				if(someHint.strcmp("tri")) {
+					ptr = new Triangle();
+				}
+					else if(someHint.strcmp("circs")) {
+						ptr = new Circle();
+			}	
+		return ptr;
+	}
+
+	main () {
+		//Circle circle = new Circle();
+		Shape shape = ShapeFactory.getShape("circs);
+
+
+	}
+
+
+-----------------------------------------------------
+
+
+
+	class Shape
+	{
+		virtual void draw()=0;
+	}
+	class Rectangle : public Shape {
+		void draw(){}
+	}
+	class Circle : public Shape {
+		void draw(){}
+	}
+	class Triangle : public Shape {
+		void draw(){}
+	}
+
+	class Color 
+	{
+		virtual void fill()=0;
+	}
+	class Red : public Color {
+		void fill() { }
+	}
+
+	class Green : public Color {
+		void fill() { }
+	}
+	class Blue : public Color {
+		void fill() { }
+	}
+
+	class ColorFactory 
+	{
+		Color  *ptr;
+
+		static Color getColor(char *someHint) {
+			if(someHint.strcmp("reddish")) {
+				ptr = new Red();
+			}
+			else
+				if(someHint.strcmp("greenish")) {
+					ptr = new Green();
+				}
+					else if(someHint.strcmp("blueish")) {
+						ptr = new Blue();
+			}	
+		return ptr;
+	}
+
+	class ShapeFactory
+	{
+		Shape *ptr;
+
+		static Shape getShape(char *someHint) {
+			if(someHint.strcmp("rects")) {
+				ptr = new Rectangle();
+			}
+			else
+				if(someHint.strcmp("tri")) {
+					ptr = new Triangle();
+				}
+					else if(someHint.strcmp("circs")) {
+						ptr = new Circle();
+			}	
+		return ptr;
+	}
+
+	class AbstractFactory
+	{
+		virtual ShapeFactory* getShapeFactory()=0;
+		virtual ColorFactory* getColorFactory()=0;
+	}
+	
+	class ColorFactory : public AbstractFactory
+	{
+		virtual ShapeFactory* getShape() {
+			return null;
+		}
+		virtual ColorFactory* getColorFactory() {
+			return 	
+		}
+
+	}
+
+	class ShapeFactory: public AbstractFactory
+	{
+		virtual Shape* getShape(char *hint) {
+			return circle,rect,triangle;
+		}
+		virtual Color* getColor(*hint) {
+			return null
+		}
+	}
+	class AbstractFactoryGenerator
+	{
+		static AbtractFactory getFactory(char *hint) {
+			if(hint.strcmp("COL")) {
+				return new ColorFactory();
+			}
+			else if(hint.strcmp("SHP")) {
+				return new ShapeFactory();
+			}
+		}
+	}
+
+	main () {
+		AbstractFactory *abstractFactory = 
+			AbstractFactoryGenerator.getFactory("COL");
+			Color color* = abstractFactory.getColor();	
+			color.
+	}
+
+
 
