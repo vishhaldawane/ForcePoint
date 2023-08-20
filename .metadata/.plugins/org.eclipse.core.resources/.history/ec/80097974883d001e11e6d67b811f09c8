@@ -1,0 +1,34 @@
+//============================================================================
+// Name        : Test.cpp
+// Author      : Vishhal
+// Version     :
+// Copyright   : Your copyright notice
+// Description : Hello World in C++, Ansi-style
+//============================================================================
+
+#include <iostream>
+using namespace std;
+
+typedef struct Batsman
+{
+  int rank;
+  char name[20];
+  int score;
+  float strikeRate;
+
+  void printBatsman() {
+	  cout<<"Rank :"<<rank;
+	  cout<<"Name :"<<name;
+	  cout<<"Score:"<<score;
+	  cout<<"SR   :"<<strikeRate;
+  }
+}Batsman;
+
+
+
+int main() {
+	cout << "Begin" << endl; // prints Good API Design
+	Batsman batsman1={10,"Sachin",10000,89.45};
+	batsman1.printBatsman();
+	return 0;
+}

@@ -1,0 +1,6 @@
+23:04:56 **** Incremental Build of configuration Debug for project APIDesign ****
+make all 
+make: Nothing to be done for `all'.
+
+23:04:56 Build Finished. 0 errors, 0 warnings. (took 131ms)
+

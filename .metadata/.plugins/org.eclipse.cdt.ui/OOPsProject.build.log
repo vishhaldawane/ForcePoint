@@ -1,0 +1,15 @@
+23:05:03 **** Incremental Build of configuration Debug for project OOPsProject ****
+make all 
+Building file: ../src/OOPsProject.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/OOPsProject.d" -MT"src/OOPsProject.o" -o "src/OOPsProject.o" "../src/OOPsProject.cpp"
+Finished building: ../src/OOPsProject.cpp
+ 
+Building target: OOPsProject
+Invoking: MacOS X C++ Linker
+g++  -o "OOPsProject"  ./src/OOPsProject.o   
+Finished building target: OOPsProject
+ 
+
+23:05:03 Build Finished. 0 errors, 0 warnings. (took 707ms)
+

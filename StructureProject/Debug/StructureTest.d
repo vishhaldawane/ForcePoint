@@ -1,0 +1,1 @@
+StructureTest.o: ../StructureTest.cpp

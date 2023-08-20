@@ -1,0 +1,16 @@
+LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/arch=x86_64
+LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/name=Local
+LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/os=macosx
+configDescList=org.eclipse.cdt.debug.core.coreBuildDescriptorType\:Bounce,org.eclipse.launchbar.core.descriptorType.default\:ConstructorDestructorProject,org.eclipse.launchbar.core.descriptorType.default\:DefaultValues,org.eclipse.launchbar.core.descriptorType.default\:TypeConversion,org.eclipse.launchbar.core.descriptorType.default\:ContainmentProject,org.eclipse.launchbar.core.descriptorType.default\:AssociationProject,org.eclipse.launchbar.core.descriptorType.default\:PointersProject,org.eclipse.launchbar.core.descriptorType.default\:ReferenceProject,org.eclipse.launchbar.core.descriptorType.default\:CopyConstructorProject,org.eclipse.launchbar.core.descriptorType.default\:FriendFunctionsProject,org.eclipse.launchbar.core.descriptorType.default\:PureVirtualFunctionsProject,org.eclipse.launchbar.core.descriptorType.default\:FileStreams,org.eclipse.launchbar.core.descriptorType.default\:ExceptionHandlingProject,org.eclipse.launchbar.core.descriptorType.default\:TemplateProject,org.eclipse.launchbar.core.descriptorType.default\:STLProject,org.eclipse.launchbar.core.descriptorType.default\:Greet,org.eclipse.launchbar.core.descriptorType.default\:APIDesign,org.eclipse.launchbar.core.descriptorType.default\:CollectionAPI,org.eclipse.launchbar.core.descriptorType.default\:Polymorphism,org.eclipse.launchbar.core.descriptorType.default\:Test,org.eclipse.launchbar.core.descriptorType.default\:OOPsProject,org.eclipse.launchbar.core.descriptorType.default\:MultipleLevelInheritanceProject
+eclipse.preferences.version=1
+org.eclipse.cdt.debug.core.coreBuildDescriptorType\:Bounce/activeLaunchMode=run
+org.eclipse.cdt.debug.core.coreBuildDescriptorType\:Bounce/activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.local\:Local
+org.eclipse.launchbar.core.descriptorType.default\:APIDesign/activeLaunchMode=run
+org.eclipse.launchbar.core.descriptorType.default\:APIDesign/activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.local\:Local
+org.eclipse.launchbar.core.descriptorType.default\:AssociationProject/activeLaunchMode=run
+org.eclipse.launchbar.core.descriptorType.default\:AssociationProject/activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.local\:Local
+org.eclipse.launchbar.core.descriptorType.default\:ConstructorDestructorProject/activeLaunchMode=run
+org.eclipse.launchbar.core.descriptorType.default\:ConstructorDestructorProject/activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.local\:Local
+org.eclipse.launchbar.core.descriptorType.default\:Greet/activeLaunchMode=run
+org.eclipse.launchbar.core.descriptorType.default\:Greet/activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.local\:Local
+org.eclipse.launchbar.core.descriptorType.default\:Polymorphism/activeLaunchMode=run

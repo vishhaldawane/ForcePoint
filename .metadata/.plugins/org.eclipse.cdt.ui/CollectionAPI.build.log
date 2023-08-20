@@ -1,0 +1,6 @@
+23:04:59 **** Incremental Build of configuration Debug for project CollectionAPI ****
+make all 
+make: Nothing to be done for `all'.
+
+23:04:59 Build Finished. 0 errors, 0 warnings. (took 73ms)
+

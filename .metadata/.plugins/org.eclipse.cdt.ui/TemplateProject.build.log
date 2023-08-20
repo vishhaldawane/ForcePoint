@@ -1,0 +1,38 @@
+23:05:05 **** Incremental Build of configuration Debug for project TemplateProject ****
+make all 
+Building file: ../src/TemplateProject.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/TemplateProject.d" -MT"src/TemplateProject.o" -o "src/TemplateProject.o" "../src/TemplateProject.cpp"
+../src/TemplateProject.cpp:161:10: warning: conversion from string literal to 'char *' is deprecated [-Wc++11-compat-deprecated-writable-strings]
+        Song s1("Hi");
+                ^
+../src/TemplateProject.cpp:162:10: warning: conversion from string literal to 'char *' is deprecated [-Wc++11-compat-deprecated-writable-strings]
+        Song s2("Bye");
+                ^
+../src/TemplateProject.cpp:114:2: error: constructor for 'MyValues<Song>' must explicitly initialize the member 'x' which does not have a default constructor
+        MyValues(T x, T y) { //initialize 2 - FILL UP GLASS with Water
+        ^
+../src/TemplateProject.cpp:164:17: note: in instantiation of member function 'MyValues<Song>::MyValues' requested here
+        MyValues<Song> jukeBox(s1,s2);
+                       ^
+../src/TemplateProject.cpp:111:4: note: member is declared here
+        T x; //declare 2 - Water
+          ^
+../src/TemplateProject.cpp:144:7: note: 'Song' declared here
+class Song
+      ^
+../src/TemplateProject.cpp:114:2: error: constructor for 'MyValues<Song>' must explicitly initialize the member 'y' which does not have a default constructor
+        MyValues(T x, T y) { //initialize 2 - FILL UP GLASS with Water
+        ^
+../src/TemplateProject.cpp:112:4: note: member is declared here
+        T y;
+          ^
+../src/TemplateProject.cpp:144:7: note: 'Song' declared here
+class Song
+      ^
+2 warnings and 2 errors generated.
+make: *** [src/TemplateProject.o] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+
+23:05:06 Build Failed. 3 errors, 2 warnings. (took 595ms)
+

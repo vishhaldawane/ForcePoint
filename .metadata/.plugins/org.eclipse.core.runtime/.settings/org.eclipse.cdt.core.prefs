@@ -1,0 +1,5 @@
+config/Bounce/cdt.launchMode=run
+config/Bounce/cdt.toolChain.id=gcc-x86_64-/usr/bin/gcc
+config/Bounce/cdt.toolChain.type=org.eclipse.cdt.build.gcc
+eclipse.preferences.version=1
+org.eclipse.cdt.core.showSourceRootsAtTopLevelOfProject=true

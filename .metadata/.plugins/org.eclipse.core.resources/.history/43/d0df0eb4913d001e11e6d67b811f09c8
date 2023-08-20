@@ -1,0 +1,45 @@
+//============================================================================
+// Name        : Test.cpp
+// Author      : Vishhal
+// Version     :
+// Copyright   : Your copyright notice
+// Description : Hello World in C++, Ansi-style
+//============================================================================
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Batsman {
+	//private: //default
+		int rank;
+		char name[20];
+		int score;
+		float strikeRate;
+	public:
+		Batsman(int rank, char *name, int score , float strikeRate) {
+			cout<<"\nsetting the batsman..."<<endl;
+			this->rank = rank;
+			strcpy(this->name,name);
+			//this->name=name;
+			this->score = score;
+			this->strikeRate = strikeRate;
+		}
+		void printBatsman() {
+			cout<<"Rank :"<<rank<<endl;cout<<"Name :"<<name<<endl;
+			cout<<"Score:"<<score<<endl;cout<<"SR   :"<<strikeRate<<endl;
+		}
+};
+
+
+
+int main() {
+
+
+
+	cout << "Begin" << endl; // prints Good API Design
+	Batsman batsman1(Batsman(10,"Sachin",10000,89.45);
+	//batsman1.rank=-10;
+	batsman1.printBatsman();
+	return 0;
+}

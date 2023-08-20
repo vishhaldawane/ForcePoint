@@ -1,0 +1,15 @@
+23:09:28 **** Incremental Build of configuration Debug for project MultipleLevelInheritanceProject ****
+make all 
+Building file: ../src/MultipleLevelInheritanceProject.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/MultipleLevelInheritanceProject.d" -MT"src/MultipleLevelInheritanceProject.o" -o "src/MultipleLevelInheritanceProject.o" "../src/MultipleLevelInheritanceProject.cpp"
+Finished building: ../src/MultipleLevelInheritanceProject.cpp
+ 
+Building target: MultipleLevelInheritanceProject
+Invoking: MacOS X C++ Linker
+g++  -o "MultipleLevelInheritanceProject"  ./src/MultipleLevelInheritanceProject.o   
+Finished building target: MultipleLevelInheritanceProject
+ 
+
+23:09:28 Build Finished. 0 errors, 0 warnings. (took 545ms)
+

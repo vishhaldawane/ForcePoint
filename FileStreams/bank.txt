@@ -1,0 +1,7 @@
+hi bank
+its a new bank
+i like the bank
+i like the banking
+we can store it at the specific folder
+we can specify the folder
+and its path

@@ -1,0 +1,26 @@
+23:05:06 **** Incremental Build of configuration Debug for project Test ****
+make all 
+Building file: ../src/Test.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Test.d" -MT"src/Test.o" -o "src/Test.o" "../src/Test.cpp"
+../src/Test.cpp:20:34: warning: conversion from string literal to 'char *' is deprecated [-Wc++11-compat-deprecated-writable-strings]
+                Batsman(int rank=0, char *name="\0", int score=0, float strikeRate=0) {
+                                               ^
+../src/Test.cpp:75:10: error: call to constructor of 'Batsman' is ambiguous
+        Batsman batsman1(10);
+                ^        ~~
+../src/Test.cpp:20:3: note: candidate constructor
+                Batsman(int rank=0, char *name="\0", int score=0, float strikeRate=0) {
+                ^
+../src/Test.cpp:44:3: note: candidate constructor
+                Batsman(int rank) {
+                ^
+../src/Test.cpp:13:7: note: candidate is the implicit copy constructor
+class Batsman {
+      ^
+1 warning and 1 error generated.
+make: *** [src/Test.o] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+
+23:05:06 Build Failed. 2 errors, 1 warnings. (took 439ms)
+

@@ -1,0 +1,14 @@
+19:54:35 **** Incremental Build of configuration Debug for project Greet ****
+make all 
+Building file: ../src/Bounce.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Bounce.d" -MT"src/Bounce.o" -o "src/Bounce.o" "../src/Bounce.cpp"
+../src/Bounce.cpp:2:10: fatal error: 'graphics.h' file not found
+#include <graphics.h>
+         ^~~~~~~~~~~~
+1 error generated.
+make: *** [src/Bounce.o] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+
+19:54:35 Build Failed. 2 errors, 0 warnings. (took 136ms)
+
