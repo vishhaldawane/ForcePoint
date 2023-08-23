@@ -1038,3 +1038,155 @@ FixedDepositAccount
 
 
 
+
+
+
+
+1. Db
+   |
+2. Beans/components/
+   |
+3. Repositories / DAO- Data Access Object
+   |
+4. SERVICE - business layer
+   |
+5. Controller
+   |
+6. UI - cout - react - angular - Android/IOS app / Website JSP/html
+	thymeleaf/ View JS / HTML CSS JS
+
+
+
+1. Emp_tbl <-- table layer
+-----------------
+	PK
+	empno	ename	salary
+	101	JAck	50000
+	102	Jane	60000
+	..
+	..
+
+2. Bean / Component layer
+
+	class Employee
+	{
+		private :
+			int employeeNumber; // same as empno column
+			string employeeName; // same as ename column
+			float employeeSalary; // same as salary column
+
+			setters/getters
+	}
+
+3. Repository layer
+	class EmployeeRepository <-- CRUD operation exposure here
+	{
+		virtual void addEmployee(Employee e)=0;
+		virtual void modifyEmployee(Employee e)=0;
+		virtual void deleteEmployee(int empno)=0;
+		virtual Employee findEmployee(int id)=0;
+		virtual list<Employee> findAllEmployees()=0; 
+	}
+	class EmployeeRepositoryImpl : public EmployeeRepository
+	{
+		EmployeeRepository() { connect to the FILE DB / DB }
+		...mandate to define all teh above 5 methods
+	}
+---------------------------------
+
+
+
+
+
+Project Structure
+
+
+		/
+		|
+	------------------
+	|
+	home
+	|
+	sachin
+		|
+		OnlineBankingProject
+			|
+		---------------------------------------------------
+		|	|	|	|	|		|
+		db	model	repo	service	controllers	ui
+		|	 |	|	 |
+		|	 |      |	ApplicantService
+		|	 |	|	ApplicantServiceImpl
+		|	 |	|	
+		|	 |	ApplicantDAO
+	  Applicant.dat  |	ApplicantDAOImpl
+			 |	 CRUD operation
+		class Applicant
+		{
+			int applicantId;
+			String applicantName;
+			String email;
+			int age;
+			String panCard;
+			String adhaarCard;...
+		}
+
+		class BankAccount { }
+
+1. Applicant.dat
+
+2. class Applicant { }
+
+3. class ApplicantDAOImpl {
+	void createApplicant(Applicant app) { 
+		//code to insert in file -- INSERT - THATS IT
+	}	
+	list viewAllApplications() {
+		SELECT ALL APPLICANTS FROM data file and 
+		push them in the list
+		and return the list....
+	}
+	CRUD
+   }
+
+4. class ApplicantService
+   {
+	ApplicantDAOImpl appDAO; //object of repo - inside service here
+
+	void applyForBankAccount(Applicant appObj) {
+		//.. some logic...
+		appDAO.createApplicant(appObj);
+		//some logic here....
+	}
+	list getAllApplications() {
+		//logic 
+		list = appDAO.showAllApplicants();
+		///some logic
+		return list;
+	}
+
+   }
+
+5. class ApplicantController
+   {
+		ApplicantService appService;
+
+		list fetchAllApplicants() {
+			return appService.getAllApplications();
+		}
+   }
+
+6. class ApplicantView
+   {
+	ApplicantController appController;
+
+	void showAllApplicants()
+	{
+		list = appController.fetchAllApplicants();
+		for loop to show the list
+	}
+   }
+
+
+
+
