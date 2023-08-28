@@ -1,0 +1,554 @@
+
+
+
+
+            Arvind    Snehal      Aditya    Sumit    Rikshit
+Akshay      Ankit     Saket       Priya     chhaya   Naved
+Chetan      Rajesh                Lakhan
+
+                        Vishhal
+
+
+Production Ready - live environment 
+
+
+    Unix box
+    ---------
+        database installed
+        services installed
+        |scripts
+        |
+        |
+    -----------
+    |   |   |   |   |   |   |
+    1mn......
+
+
+    Unix / Linux Fundamentals and shell scripting
+
+
+                    who
+                    |? scripter, sql developer, java developer, tester, deployer
+            ------------------
+            |                |
+            where Pune Saama |   when  2021
+            |   space        |time
+        -------------------------
+        |           |           |
+        why         what        how
+        reason      inFORMation     apply
+
+    mental physical emotinal spritual
+
+                machine     mind        technology
+                yantra      mantra      tantra
+                tangible    intangible  intangible
+
+
+Day 1 Agenda
+------------
+
+1. Introduction to Unix/Linux
+2. getting around the system
+3. Unix file system structure
+4 .Basic commands
+   file
+   directory 
+5. Vi editor
+6. file permissions
+7. file links
+
+
+
+
+
+Introduction to Unix/Linux
+
+
+Unix        
+                 - Ken Thompson
+
+    SYSIII
+    |
+    SCO-Unix
+
+        UNiplexed Information Computing System
+
+            UNICS
+		UNIX
+
+            1 machine - server
+            |  h/w               s/w
+            |  Abundance        utitilies/ websites
+            | 32 CPU 
+            | 100s TB 
+            |
+    ------------------
+    |||||||||||||
+    1 2 3 ...mn   p/w  Lehman Brothers <-- Nomura
+
+=>     SUN         IBM         HP            Apple                  any
+        |           |           |            |                      |
+cpu    SParc        BB          hpseries    powerpc/intel/M1       any     
+        |           |           |            |                      |
+o/s    Solaris      AIX         hp-ux       macintosh       redhat -  Linux
+        <------------------unix------------------>          
+        |
+        ls          ls          ls          ls      
+
+        bajaj           honda          TVS              eicher
+        |               |               |               |
+        DTSi            hondaS          tvs engine      royal enfield
+        |               |               |               |
+        pulser 150      Unicorn         Apache      bullet 350
+        220             Shine           jupitor     classic
+                        Activa
+
+        <--------------bike--------------------------->
+
+            Linux
+            |
+    ------------------------------------
+    |           |           |       |           50 flavours
+    redhat  mandrake     caldera    suse
+    |
+----------
+|       |           
+paid    free
+RHEL       Fedora Core
+            |
+            Ubuntu
+
+
+
+
+1. Portable user experience
+
+
+Linus Torvalds - Finland - Linux /  GNU - G Not Unix
+
+    Unix OS
+
+
+     010101       Hardware
+                    |
+     asm        Kernel <-- not open source
+                    |
+     C lang     Shell - 
+                    |
+     english    User -  ls .......
+
+
+Getting around the system
+--------
+
+ls - list the files from the current directory
+
+pwd - print working directory
+
+cal
+
+cal -3
+
+cal 2021
+
+cal 1752
+
+cal -j
+
+bc
+
+man cal <-- to get the help on unix
+
+
+
+
+                            /
+                            |
+            ---------------------------------
+            |           |       |       |
+            Users       etc     usr     home
+            |           |
+        ---------
+        |
+        apple
+
+mounting - getting a partition mapped with a folder
+
+
+                        MyComputer
+                            |
+                --------------------------
+                |           |       |
+                C:          D:      E: <-- drive letter convention
+                |
+            -------
+            |
+            Users
+            |
+            Rakesh
+
+Super User Account : root  ( in windows we call it as Administrator )
+End   User Account : jack, jane, ram, rahim, 
+
+            Unix File System directory structure
+             - The international standard struture for unix
+
+top                 / <-- root directory
+                    |
+        ---------------------------------------------------------------------------------------
+        |       |       |           |       |       |       |       |       |       |
+1       usr     bin     sbin        opt     home    etc     dev     mnt     var     proc
+        |       50      70                     |
+    ---------                               --------------------------
+    |       |                               |       |       |       |
+2   bin     sbin                        rajesh    chhaya    naved   priya
+    500     300
+
+    jack /bin
+    jane /sbin
+    smith /bin /sbin /usr/bin
+    robert /bin /sbin/ usr/bin /usr/sbin
+
+0. 	/ - root directory of the UFS - 
+1.      /usr - unix system resources
+2.      /bin - binaries - executable files 
+3.      /sbin - system administrator's binaries (used by the root user)
+4.      /usr/bin
+5.      /usr/sbin
+
+6.      /opt  - optional software - C:\program files
+7.      /etc - editable text for configuration
+8.      /home - main directory for all the Users
+9.      /dev - all unix devices as filenames, organized here
+                file security - read, write, execute 
+                                r     w       x
+	/devices - for solaris os
+
+	EVERYTHING IN UNIX IS A FILE
+
+	PRINTER IS A FILE
+	USER IS A FILE
+	DIRECTORY IS A FILE
+	DEVICE IS ALSO A FILE
+
+10.     /mnt   - mount point access 
+11.     /var   - variable data 
+12.     /proc  - running processs as files 
+		ps -ef
+		ps -ef | more
+		
+	-e = system + users 
+	-f = full list
+
+	ps = process status
+
+
+	ps -ef | grep username
+
+	
+
+	
+
+	
+13.     /tmp   - temporary files
+14.     /lib   - libraries of unix      
+
+
+			abc.cpp
+			  |main() { }
+		----------------------
+		|		|
+		abc.obj		abc.o
+		|		|
+		abc.exe		abc.out
+		MEMORY		MEMEORY
+
+
+			mylib.cpp
+			| sum(){} avg(){} max(){} min(){}
+		------------------
+		|		|
+		mylib.obj	mylib.o
+		|		|
+		mylib.dll	mylib.so [ shared objects ]
+		HDD		HDD
+				/lib
+
+
+	cd /lib
+	ls -R | grep pam
+
+
+
+15.     /root  - this is the HOME directory of ROOT USER
+
+		separator
+		    |	
+		/usr/bin <--- 
+		| |   |
+		1 2   3
+
+			/
+			|
+		-----------------------
+		|	|	|
+		usr	sbin	bin
+		|	(50)	(40)
+		---------
+		|	|
+		bin	sbin
+		(400)	(500)
+
+
+
+File and directory related commands
+
+
+
+
+Directory structure
+------------------------
+
+ top                    / <--- root directory
+                        |
+    -----------------------------------------------------
+    |                                               |
+ 1  root <-- this is unix admin's home directory    home
+       |                                             |
+       |                                            naved
+------------------
+            |
+2           office <-- mkdir office
+            |                         
+        -----------------------------------
+        |                   |           |
+3       mail              bank      abc.txt
+        |                   |
+    -----------------       ---------------------
+    |       |       |       |       |       |
+4   inbox outbox   pqr.txt  icici   hdfc  xyz.txt
+    |         |               |       |
+5 letter.txt  draft.txt     jan.lst  feb.lst
+
+
+cd office
+office#   cat > mail/inbox/letter.txt
+data here
+^d <-- to save it
+
+office# cat > mail/outbox/draft.txt
+your data here
+^d <-- to save it
+
+
+touch newFile.txt
+172.17.245.210
+
+
+
+
+goto root directory
+
+1. goto the slash
+2. goto the /root ( slash root )
+
+
+
+
+mkdir - to make a folder
+cd ..  - to exit one level Up
+cd direcotry - to enter into the directory
+rmdir directoryname - to remove the empty directory
+mv oldname  newname 
+
+mv - to rename the file/directory
+mv is also used to move the file or directory
+
+
+cd ../bank 
+cd -   to toggle the last working directories
+
+
+cd   -- to goto the user's home directory
+
+
+
+File permissions
+-------------------
+
+	FOR ENSURING SECURITY
+
+		- BECAUSE BY DEFAULT EVERYTHING IS IN<--"SECURED"
+							
+		FROM THE WORD INSECURED WE HAVE TO ACQUIRE IN->SECURED
+
+	in unix there 3 users
+	and 3 permissions
+
+
+	in real life also the same
+
+
+
+	TYPES OF USERS : 
+
+	USER - You as the owner - user of the file / directory
+
+	GROUP - Your family members (group members) - trusted members of a group
+
+	OTHERS - Others - relatives, neighbours, tresspassers, strangers
+			neither the user nor the group members
+		
+
+	TYPES OF PERMISSIONS : 
+
+	Read your file / directory
+
+	write to your file / directory
+
+	Execute your file or directory
+
+- means absense of permission
+a letter means that permission is present
+
+
+[ office = yash + prithvi + guruakash + prathmesh ]
+Your diary (file)/bag(folder)
+  |||
+  ||| House
+  ||| |||
+  ||| ||| In Local Train/relatives place/party
+  ||| ||| |||
+  ??? ??? ???
+  rwx rw- ---
+1 234 567 890
+  uuu ggg ooo   OWNER  GROUP     SIZE  MOD-time   file/directory
+  ||| ||| |||     |      |         |       |         |
+- rwx r-- ---  1 yash   office     98 Aug 24 14:45  myofficediary.txt
+d rwx --- ---  1 yash   office     17 Aug 24 15:43  officebag
+d rw- r-- r--  1 yash   family     17 Aug 24 15:43  yourdrawerAthome 
+|              |
+|	   hard link count
+the type
+
+d = directory
+l = soft link
+- = a regular file
+b = block file
+c = a character file
+s = a socket file
+
+
+
+	HOW TO APPLY IT
+
+
+			SECURITY
+			   |
+		-------------------------
+		|FLEXIBLE TO 		|EFFICIENT WAY TO OVERLAP
+		| INDIVIDUAL LETTER	|ENTIRE SET 
+		CHARACTER		OCTAL
+		|			|
+		r = READ		4	
+		w = WRITE		2
+		x = EXECUTE		1
+		---------		---
+		rwx			7
+		r--			4
+		rw-			6
+		r-x			5
+		-wx			3
+		--x			1
+
+		rwxrwxrwx		777
+		r--r--r--		444
+		rw-rw-rw-		666
+		rwxrw-r--		754
+		
+			
+
+	chmod = change the mode of the file
+
+		chmod usertype+-=permission type   file/directory
+
+		chmod u-r   file
+		chmod u-rw  file
+		chmod u-rwx file
+		chmod r-u   file  ILLEGAL
+	
+		chmod u+rw,g+r,o-x  file 
+
+			user with read write granted
+			group with read granted
+			others execute revoked
+
+		
+		
+
+			file			directory
+	===========================================================
+
+	read		cat file		ls command to
+			vi  file		view its content
+	-----------------------------------------------------------
+	write		modify it		edit the folder via
+			via cat >>,		making new files
+			via vi editor		cat>, cat>>, rm,
+			*but does not mean	cp,mv,rmdir on
+			deleting it		subfolders in it
+	-----------------------------------------------------------
+	execute		run it as a 		you can enter into it
+			shell script		using cd command
+			or a command
+	-----------------------------------------------------------
+
+umask = user mask
+
+
+	there is something called as
+	
+
+				FILE		DIRECTORY
+
+				============================
+	BASE PERMISSION		6  6  6		7   7   7
+
+	UMASK		      0	0  2  2	      0 0   2   2
+     -
+				------------------------------
+	DEFAULT PERMISSION    0 6  4  4	      0 7   5   5
+			       rw- r--r--	rwx r-x r-x	
+
+
+				FILE		DIRECTORY
+
+				============================
+	BASE PERMISSION		6  6  6		7   7   7
+
+	UMASK		      0	0  4  4	      0 0   4   4
+     -
+				------------------------------
+	DEFAULT PERMISSION    0 6  2  2	      0 7   3   3
+			       rw- -w--w-	rwx -wx -wx	
+
+
+
+The BASE is the MAXIMUM permission u willevery get on a file
+by default
+
+	so if any hacker, or a program tries to create a file
+	and awaits for a default execute over it , it is impossible
+
+
+
+
+
+
+
+
+
+
+
+
