@@ -546,6 +546,244 @@ by default
 
 
 
+		chmod u=r,g=w,o=x file.txt
+
+		user permission would only be r, 
+	
+		= will overwrite existing permission
+
+-------------------------------------------------
+
+
+
+The Vi Editor
+Filters
+Shell environment
+Shell Scripting
+--------------
+	
+	1. Vi editor
+
+
+		vi = visual editor
+		
+		vim = visual improved
+
+
+		King of all editors
+
+
+			$ vi
+
+			by default vi enters into a mode known as
+ 
+				COMMAND MODE
+					|ESC <-- back here
+			---------------------------------
+			|				|
+			[i]				[:]	
+			INSERT MODE		EX MODE/LAST LINE MODE
+			|				|
+			your data is here
+
+
+
+		:w means to save the file and continue editing
+
+		:w filename - save it as a filename 
+
+		:q to quit 
+
+		:wq filename - save it as a file and quit
+
+
+
+
+
+	1. vi
+	2. press i to switch to insert mode
+	3. type your desired data lines
+	4. press ESC to back to command mode
+		repeat steps 2,3,4 if you want more lines 
+		or editing
+	5. press : to switch to Ex mode
+	6. w to save the file [ error ] since no file name
+	7. :w filename [ your choice of name ] to save as
+	8. :q to quit
+
+
+
+
+	1. vi jacky.txt <-- a new name
+	2. press i
+	3. type data
+	4. press ESC
+	5. press :wq <-- save and quit
+
+
+
+
+	vi office <-- ie a folder
+	press enter on entires to explore
+	.. 
+	.
+	once a file is open
+	:Explore to activate the menu again
+
+	
+	Poll for -> Is Explore in vi tried?
+
+
+	$ info ls > smith.txt
+
+	$ vi smith.txt
+
+	in the vi
+
+	:set number
+	:set nonumber
+
+	:1
+	:$
+	:40
+	:50
+
+
+	press w
+	press b
+
+	press e
+	
+
+	^E- scroll down
+
+	^Y- scroll up
+
+
+
+	dw - delete the current word
+
+	5dw - delete 5 words
+
+	dd - delete the current line
+
+	5dd - delete 5 lines
+
+
+	press u - undo the last action
+
+	5u - 5 last actions undone
+
+
+	yy - to copy a line
+
+	p - to paste it
+
+
+		cut			copy
+		|dw			|yw <-- for a word
+		|5dw			|5yw <-- for 5 words
+
+		|dd			|yy <-- for a line
+		|5dd			|5yy <-- for N lines
+		------------------------- 
+			    |
+			    p - to paste it
+			   5p - paste 5 times
+
+	
+		
+			  paste
+	
+
+
+
+	Various filters
+	----------------
+
+	to acquire the desired output from a given input
+
+	1. head 
+
+		acquire top 10 lines - by default
+
+		head filename
+		head -n 5 filename
+		head -n 15 filenaem
+
+
+	2. tail
+		acquire bottom 10 lines - by default
+
+		tail filename
+		tail -n 5 filename
+		tail -n 15 filename
+
+	3. cut 
+
+		acquire the desired column from a given data file
+
+		cut -f 1,2,3 filename
+
+			-f means field number
+
+		
+			default delimiter is TAB key
+
+			
+		cut -d "|" -f 1 filename
+
+			-d to specify a custom delimiter
+
+			-f to field number
+
+		can we use cut, head and tail together?
+
+
+		yes 
+
+	using the PIPE ie | symbol
+
+
+		it is used as redirection operator
+
+
+
+		cmd1 | cmd2 | cmd3 | cmd4 
+
+
+		output of cmd1 converted as an input to cmd2
+
+		and output of cmd2 is converted as an input to cmd3
+
+		and so on
+		
+		the ultimate output of cmd4 is produced
+
+		
+		head -n 3 emp.lst | tail -n 1 | cut -d "|" -f2,3,4
+
+	
+	4. tr
+
+		to translate the input as desired output
+
+
+
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
