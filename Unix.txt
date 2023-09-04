@@ -770,18 +770,364 @@ Shell Scripting
 
 
 
+	5. grep
+
+		Global Regular Expression Print
+
+search for gupta
+  grep gupta emp.lst
+
+with color
+  grep gupta emp.lst --color
+
+with ignore case
+  grep -i gupta emp.lst --color
+
+with whole word
+  grep -w gupta emp.lst --color
+
+with whole word and ignore case
+  grep -iw gupta emp.lst --color
+
+search for man
+  grep man emp.lst --color
+
+does nothing
+  grep \<man emp.lst --color
+
+search for word begining with man
+  grep "\<man" emp.lst --color
+
+search for word ending with man
+  grep "man\>" emp.lst --color
+
+search word ending with gupta
+  grep "gupta\>" emp.lst --color
+
+search word begining with gupta
+  grep "\<gupta" emp.lst --color
+
+same as -w
+  grep "\<gupta\>" emp.lst --color
+
+search LINES begin with 9
+  grep ^9 emp.lst --color
+
+search 9 everywhere
+  grep 9 emp.lst --color
+
+search line ending with 9
+  grep 9$ emp.lst --color
+						
+
+		12 3 4 567
+		sa x   ena
+		sa k s ena
+
+		sa[xk]s*ena
+
+
+	letter preceeding * is optional
+	
+
+ls a* <-- begin with a
+
+ls *.txt <-- all files with extension as txt
+
+but * has different meaning in GREP
+
+
+
+
+
+thanx
+thanks
+
+
+
+	Customizing Vi editor
+	----------------------
+		there is a file known as 
+		.vimrc [ if doesnt exist, make it ]
+
+		it must be in your user's home directory
+
+		/home/prithvi/.vimrc
+
+
+		add following lines in it
+
+		set number
+		set nowrap
+		abbr teh the
+		abbr fp Force Point
+		
+	
+
+
+
+Shell Environment
+-------------------
+
+		set  = local env of the user 
+
+		set A=100
+		A=100
+
+		
+		env = global env of the user
+
+
+
+	login prompt :
+
+		Enter username : root
+		Enter password : ....
+		
+	now you are at a shell prompt $ <-- level 1
+
+		A=100
+		export A <-- now it is available to all the children level
+		from level 1 jump to level2
+
+		$ bash
+
+		$ <-- level 2
+			varibale A is not availble at level 2
+		B=200
+		export B , b is availle to level3 not the level 1
+
+		$ bash
+
+		$ <--- level 3
+
+
+
+Shell Scripting
+------------------
+
+
+	Programming		vs		Scripting
+	|					|
+	C programming				X
+	CPP					X
+	Java JPL				Java script
+	VB .net					VB script
+
+	Python 					Python
+	X					PL SQL scripting
+	Shell					Shell
+	|					|
+	mission critical application		you control the flow
+	development				of these mission critical
+						apps
+
+	data types				X
+	operators				X
+	functions				YES
+	libraries { .jar files }		X
+
+	DS					X
+	Algo					X
+	GUI					X
+	Complex math expression			X
+	Heavy file handling			X
+	LOGIC here				X
+
+
+	1. Automation of the business logic
+	2.
+	3.
+	
+
+
+
+	Command line arguments
+		- passing parameters to the script at runtime
+
+
+		$# -- argument count
+
+		$* -- all the arguments [ vector ]
+		
+		$0 -- the current script name
+
+		$1 to $9 all the 9 arguments passed
+
 			
+			$# = 9 
+		$0	
+		 |	$1	$2   $3    $4   $5    $6   $7 $8 $9
+	$ myscript.sh  amar akbar anthony java oracle unix 12 30 40
+		       <--------------------$*--------------------->	
 
 
 
 
+Loops:
+
+	while
+
+	until
+
+	for
+
+
+	$ vi amar akbar anthony
+
+		:w to save current file
+
+		:next to switch to next file
+
+		:prev to switch to prev file
+
+		:wqa --  write to all files and quit
+
+		:qa! -- discard all files
+	
 
 
 
 
+Stream editor
+------------------
+
+		non - interactive editor
+
+
+	vi			sed
+	|			|
+	the user		the user passes
+	interacts		the commands to edit
+	by pressing		CRUD operation
+	i			can be done using commands
+	Esc
+	:wq
+	dw
+	dd
+	yy
+	p
 
 
 
+
+	sed 'action' filelist
+
+
+	default action is - to print each line one by one
+
+
+	sed '' emp.lst  -- prints each line one by one
+
+	sed 'p' emp.lst -- 
+		'' default is to print each line
+		'p' + added extra print - hence twice the output
+
+
+	sed '7p' emp.lst -- means to print only the 7th line
+
+			+ default print of all lines
+
+	sed -n '7p' emp.lst
+
+			-n means to suppress default print
+			and only print the 7th line
+
+Find a pattern in vi
+	/gupta -- to search the pattern
+	
+:set hls -- to hight light the selection
+
+	press n to go forward
+	press N to go backward
+
+
+Find and Replace pattern in Vi
+	:s/a/A  -- current line substitute a with A
+	:1s/a/A   --1st line a with A
+
+	:5,10s/a/A -- lines 5 to 10 a with A
+
+	:1,$s/a/A -- all lines a with A
+
+	above activities are only for the first occurence found
+
+	:s/a/A/g -- g means global - all occurences
+	:1s/a/A/g
+	:5,10s/a/A/g
+	
+	:1,$s/a/A/g
+		OR
+	:%s/a/A/g
+
+
+SUbstitute with sed
+
+		replace sales with SALES on line 8
+	1. sed -n '8s/sales/SALES/p' emp.lst
+	
+		replace from 8 to 10 for all occurences
+	2. sed -n '8,10s/sales/SALES/gp' emp.lst
+
+
+	
+APPEND A RECORD
+
+	append the record after the 5th line
+
+	sed '5a \
+		5555|sachin tendulkar|cricketer|cricket|12/Jan/80|8888
+	' emp.lst
+
+INSERT A RECORD
+	insert before 5th line 
+	sed '5i \
+		5555|sachin tendulkar|cricketer|cricket|12/Jan/80|8888
+	' emp.lst
+
+DELETE A RECORD
+
+	sed '5d' emp.lst
+
+	cat -n emp.lst | sed '5,10d'
+
+
+MENU
+-----
+1. add user
+2. show users
+3. show particular user by id
+4. modify user
+5. delete user
+6. exit
+------------
+
+DATA FILE : user.list
+
+1.add user
+	- should accept values from the user
+	- and appends the data at the end of the file
+	- if that user name exists , then error msg
+2. show users
+	- would show all the users in a particular format
+
+3. show particular user by its id
+	- enter the user name, if not found, then error msg
+4. modify user
+	- ask the username, show the current details
+	- ask to modify the password and city
+	- if the user doesnt exist then error msg
+5. delete user
+	- ask the username, show the details
+	- confirm to delete, if yes delete it
+	- if not found, then error msg
+
+
+	
+	
+
+	
+		
 
 
 
